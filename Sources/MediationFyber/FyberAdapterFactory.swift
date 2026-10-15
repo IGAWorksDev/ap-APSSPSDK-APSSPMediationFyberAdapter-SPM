@@ -8,7 +8,7 @@ public final class FyberAdapterFactory: NSObject, APSSPAdapterFactory {
     public static var networkID: Int { 16 }
 
     public static var sdkVersion: String? { FyberInitializationAdapter().sdkVersion }
-    public static var adapterVersion: String? { "8.4.2.0" }
+    public static var adapterVersion: String? { "8.4.3.0" }
 
     public static func makeInitializationAdapter() -> AnyObject? {
         return FyberInitializationAdapter()
