@@ -30,6 +30,7 @@
 
 DTExchangeSDK `8.5.0` 대응
 어댑터 버전 `8.5.0.0`
+APSSPSDK `3.4.0` 이상
 
 2026-10-15
 
@@ -37,6 +38,7 @@ DTExchangeSDK `8.5.0` 대응
 
 DTExchangeSDK `8.4.10` 대응
 어댑터 버전 `8.4.10.0`
+APSSPSDK `3.4.0` 이상
 
 2026-10-15
 
@@ -44,6 +46,7 @@ DTExchangeSDK `8.4.10` 대응
 
 DTExchangeSDK `8.4.10` 대응
 어댑터 버전 `8.4.10.0`
+APSSPSDK `3.4.0` 이상
 
 2026-08-05
 
@@ -51,6 +54,7 @@ DTExchangeSDK `8.4.10` 대응
 
 DTExchangeSDK `8.4.9` 대응
 어댑터 버전 `8.4.9.0`
+APSSPSDK `3.4.0` 이상
 
 2026-10-15
 
@@ -58,6 +62,7 @@ DTExchangeSDK `8.4.9` 대응
 
 DTExchangeSDK `8.4.9` 대응
 어댑터 버전 `8.4.9.0`
+APSSPSDK `3.4.0` 이상
 
 2026-07-28
 
@@ -65,6 +70,7 @@ DTExchangeSDK `8.4.9` 대응
 
 DTExchangeSDK `8.4.8` 대응
 어댑터 버전 `8.4.8.0`
+APSSPSDK `3.4.0` 이상
 
 2026-10-15
 
@@ -72,6 +78,7 @@ DTExchangeSDK `8.4.8` 대응
 
 DTExchangeSDK `8.4.8` 대응
 어댑터 버전 `8.4.8.0`
+APSSPSDK `3.4.0` 이상
 
 2026-06-28
 
@@ -79,6 +86,7 @@ DTExchangeSDK `8.4.8` 대응
 
 DTExchangeSDK `8.4.7` 대응
 어댑터 버전 `8.4.7.0`
+APSSPSDK `3.4.0` 이상
 
 2026-10-15
 
@@ -86,6 +94,7 @@ DTExchangeSDK `8.4.7` 대응
 
 DTExchangeSDK `8.4.7` 대응
 어댑터 버전 `8.4.7.0`
+APSSPSDK `3.4.0` 이상
 
 2026-05-07
 
@@ -93,6 +102,7 @@ DTExchangeSDK `8.4.7` 대응
 
 DTExchangeSDK `8.4.6` 대응
 어댑터 버전 `8.4.6.0`
+APSSPSDK `3.4.0` 이상
 
 2026-10-15
 
@@ -100,6 +110,7 @@ DTExchangeSDK `8.4.6` 대응
 
 DTExchangeSDK `8.4.6` 대응
 어댑터 버전 `8.4.6.0`
+APSSPSDK `3.4.0` 이상
 
 2026-03-29
 
@@ -107,6 +118,7 @@ DTExchangeSDK `8.4.6` 대응
 
 DTExchangeSDK `8.4.5` 대응
 어댑터 버전 `8.4.5.0`
+APSSPSDK `3.4.0` 이상
 
 2026-10-15
 
@@ -114,6 +126,7 @@ DTExchangeSDK `8.4.5` 대응
 
 DTExchangeSDK `8.4.5` 대응
 어댑터 버전 `8.4.5.0`
+APSSPSDK `3.4.0` 이상
 
 2026-02-17
 
@@ -121,6 +134,7 @@ DTExchangeSDK `8.4.5` 대응
 
 DTExchangeSDK `8.4.4` 대응
 어댑터 버전 `8.4.4.0`
+APSSPSDK `3.4.0` 이상
 
 2026-10-15
 
@@ -128,6 +142,7 @@ DTExchangeSDK `8.4.4` 대응
 
 DTExchangeSDK `8.4.4` 대응
 어댑터 버전 `8.4.4.0`
+APSSPSDK `3.4.0` 이상
 
 2026-02-17
 
@@ -135,6 +150,7 @@ DTExchangeSDK `8.4.4` 대응
 
 DTExchangeSDK `8.4.3` 대응
 어댑터 버전 `8.4.3.0`
+APSSPSDK `3.4.0` 이상
 
 2026-10-15
 
@@ -142,6 +158,7 @@ DTExchangeSDK `8.4.3` 대응
 
 DTExchangeSDK `8.4.3` 대응
 어댑터 버전 `8.4.3.0`
+APSSPSDK `3.4.0` 이상
 
 2025-12-30
 
@@ -149,6 +166,7 @@ DTExchangeSDK `8.4.3` 대응
 
 DTExchangeSDK `8.4.2` 대응
 어댑터 버전 `8.4.2.0`
+APSSPSDK `3.4.0` 이상
 
 2026-10-15
 
@@ -156,5 +174,6 @@ DTExchangeSDK `8.4.2` 대응
 
 DTExchangeSDK `8.4.2` 대응 · SPM 개별 배포 시작
 어댑터 버전 `8.4.2.0`
+APSSPSDK `3.4.0` 이상
 
 2025-12-22
