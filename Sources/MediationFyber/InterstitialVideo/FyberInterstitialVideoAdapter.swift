@@ -3,10 +3,14 @@ import APSSPSDK
 
 final public class FyberInterstitialVideoAdapter: APSSPInterstitialVideoAdapterInappBiddingProtocol {
 
-    public var delegate: APSSPInterstitialVideoAdapterDelegate?
-    public var rootViewController: UIViewController?
+    public weak var delegate: APSSPInterstitialVideoAdapterDelegate?
+    public weak var rootViewController: UIViewController?
 
     private var fyberMediationInterstitialVideoAd: FyberMediationInterstitialVideoAd?
+
+    deinit {
+        APLogger.debug("FyberInterstitialVideoAdapter deinit")
+    }
 
     public init(placementDic: [String: String], rootViewController: UIViewController?, info: [String: Any?]) {
         let placementId = placementDic[APSSPPlacementKey.fyberSpotId.rawValue] ?? ""

@@ -4,7 +4,7 @@ import IASDKCore
 
 final class FyberMediationInterstitialAd: NSObject {
 
-    var delegate: APSSPInterstitialAdapterDelegate?
+    weak var delegate: APSSPInterstitialAdapterDelegate?
 
     private let placementId: String
     private weak var rootViewController: UIViewController?
@@ -25,6 +25,8 @@ final class FyberMediationInterstitialAd: NSObject {
     }
 
     func present(from: UIViewController, completion: () -> Void) {
+        // 광고는 매체가 present 에 넘긴 화면 위에 띄운다. 로드 때 받은 화면은 그사이 해제됐을 수 있다.
+        rootViewController = from
         if adSpot?.activeUnitController == fullscreenUnitController {
             fullscreenUnitController?.showAd(animated: true, completion: nil)
             completion()

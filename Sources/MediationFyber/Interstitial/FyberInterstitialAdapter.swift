@@ -3,10 +3,14 @@ import APSSPSDK
 
 final public class FyberInterstitialAdapter: APSSPInterstitialAdapterInappBiddingProtocol {
 
-    public var rootViewController: UIViewController?
-    public var delegate: APSSPInterstitialAdapterDelegate?
+    public weak var rootViewController: UIViewController?
+    public weak var delegate: APSSPInterstitialAdapterDelegate?
 
     private var fyberMediationInterstitialAd: FyberMediationInterstitialAd?
+
+    deinit {
+        APLogger.debug("FyberInterstitialAdapter deinit")
+    }
 
     public init(placementDic: [String: String], rootViewController: UIViewController?, info: [String: Any?]) {
         let placementId = placementDic[APSSPPlacementKey.fyberSpotId.rawValue] ?? ""

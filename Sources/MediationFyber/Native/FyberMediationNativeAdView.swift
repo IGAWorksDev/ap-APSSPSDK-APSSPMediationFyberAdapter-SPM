@@ -22,7 +22,7 @@ public final class APSSPFyberNativeAdRenderer: NSObject, APSSPNativeRenderer {
 
 final class FyberMediationNativeAdView: NSObject {
     
-    var delegate: APSSPNativeViewAdapterDelegate?
+    weak var delegate: APSSPNativeViewAdapterDelegate?
     
     private let placementId: String
     

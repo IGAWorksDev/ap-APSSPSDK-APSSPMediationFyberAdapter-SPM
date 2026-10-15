@@ -11,12 +11,16 @@ import APSSPSDK
 
 
 final public class FyberRewardVideoAdapter: APSSPRewardVideoAdapterInappBiddingProtocol {
-    public var rootViewController: UIViewController?
+    public weak var rootViewController: UIViewController?
 
     private var fyberMediationRewardVideoAd: FyberMediationRewardVideoAd?
     
-    public var delegate: APSSPRewardVideoAdapterDelegate?
+    public weak var delegate: APSSPRewardVideoAdapterDelegate?
     
+    deinit {
+        APLogger.debug("FyberRewardVideoAdapter deinit")
+    }
+
     public init(placementDic: [String: String], rootViewController: UIViewController?, info: [String : Any?]) {
         let placementId = placementDic[APSSPPlacementKey.fyberSpotId.rawValue] ?? ""
         fyberMediationRewardVideoAd = FyberMediationRewardVideoAd(placementId: placementId, rootViewController: rootViewController)

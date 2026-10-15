@@ -14,7 +14,7 @@ final public class FyberNativeAdapter: APSSPNativeAdapterInappBiddingProtocol {
     
     weak public var delegate: APSSPNativeViewAdapterDelegate?
     
-    public var rootViewController: UIViewController?
+    public weak var rootViewController: UIViewController?
     
     private var nativeAdView: FyberMediationNativeAdView
     

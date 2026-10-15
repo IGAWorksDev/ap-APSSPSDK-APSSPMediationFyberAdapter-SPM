@@ -8,11 +8,15 @@ import APSSPSDK
 import IASDKCore
 
 final public class FyberVideoMixAdapter: APSSPVideoMixAdAdapterInappBiddingProtocol {
-    public var rootViewController: UIViewController?
-    public var videoMixDelegate: APSSPVideoMixAdAdapterDelegate?
+    public weak var rootViewController: UIViewController?
+    public weak var videoMixDelegate: APSSPVideoMixAdAdapterDelegate?
     public var videoMixAdType: APSSPVideoMixAdType = .RewardVideo
     private var placementDic: [String: String] = [:]
     private var rewardVideoAdapter: FyberRewardVideoAdapter?
+
+    deinit {
+        APLogger.debug("FyberVideoMixAdapter deinit")
+    }
 
     public init(placementDic: [String: String], rootViewController: UIViewController?, info: [String: Any?]) {
         self.placementDic = placementDic; self.rootViewController = rootViewController
@@ -31,7 +35,7 @@ final public class FyberVideoMixAdapter: APSSPVideoMixAdAdapterInappBiddingProto
             rewardVideoAdapter = FyberRewardVideoAdapter(placementDic: placementDic, rootViewController: rootViewController, info: [:])
             rewardVideoAdapter?.connectDelegate(delegate: self)
         case .Interstitial, .InterstitialVideo:
-            videoMixDelegate?.videoMixAdLoadFail(error: .noAdError, type: videoMixAdType, errorMessage: "Ad type not supported")
+            videoMixDelegate?.videoMixAdLoadFail(error: .nextMediation, type: videoMixAdType, errorMessage: "Ad type not supported")
         @unknown default:
             break
         }
