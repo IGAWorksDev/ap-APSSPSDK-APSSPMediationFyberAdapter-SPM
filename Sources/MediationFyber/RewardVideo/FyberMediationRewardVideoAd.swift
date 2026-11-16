@@ -84,27 +84,25 @@ final class FyberMediationRewardVideoAd: NSObject {
         }) else { return }
         
         self.fullscreenUnitController = fullscreenUnitController
-        
+        self.rewardedAd = adspot
+
         if let biddingData = self.biddingData, !biddingData.isEmpty {
-            adspot.loadAd(withMarkup: biddingData) { adSpot, IAAdModel, error in
+            adspot.loadAd(withMarkup: biddingData) { [weak self] adSpot, IAAdModel, error in
                 if let error {
                     APLogger.error("Fyber RewardVideo Bidding Error: \(error.localizedDescription)")
-                    self.delegate?.rewardVideoLoadFail(error: .nextMediation, errorMessage: "Fyber RewardVideo load error")
+                    self?.delegate?.rewardVideoLoadFail(error: .nextMediation, errorMessage: "Fyber RewardVideo load error")
                 } else {
-                    self.rewardedAd = adSpot
-                    self.delegate?.rewardVideoLoadSuccess()
+                    self?.delegate?.rewardVideoLoadSuccess()
                 }
             }
         } else {
-            adspot.fetchAd { adSpot, IAAdModel, error in
+            adspot.fetchAd { [weak self] adSpot, IAAdModel, error in
                 if let error {
                     APLogger.error("Fyber RewardVideo Error: \(error.localizedDescription)")
-                    self.delegate?.rewardVideoLoadFail(error: .nextMediation, errorMessage: "Fyber RewardVideo load error")
+                    self?.delegate?.rewardVideoLoadFail(error: .nextMediation, errorMessage: "Fyber RewardVideo load error")
+                } else {
+                    self?.delegate?.rewardVideoLoadSuccess()
                 }
-                else {
-                    self.delegate?.rewardVideoLoadSuccess()
-                }
-                
             }
         }
     }
