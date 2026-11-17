@@ -24,6 +24,10 @@ final class FyberMediationRewardVideoAd: NSObject {
     private var rewardedAd: IAAdSpot?
     
     private var fullscreenUnitController: IAFullscreenUnitController?
+
+    private var videoContentController: IAVideoContentController?
+
+    private var mraidContentController: IAMRAIDContentController?
     
     init(placementId: String, rootViewController: UIViewController?, biddingData: String? = nil) {
         self.placementId = placementId
@@ -59,7 +63,6 @@ final class FyberMediationRewardVideoAd: NSObject {
         }
         
         let adRequest: IAAdRequest? = IAAdRequest.build { builder in
-            builder.useSecureConnections = true
             builder.spotID = self.placementId
             builder.timeout = 5
         }
@@ -72,10 +75,16 @@ final class FyberMediationRewardVideoAd: NSObject {
         guard let viewUnitController: IAVideoContentController = IAVideoContentController.build({ builder in
             builder.videoContentDelegate = self
         }) else { return }
+
+        // 영상 외에 MRAID(HTML·플레이어블) 소재도 내려온다. 등록 안 하면 801 "no supported content controller"
+        let mraidContentController = IAMRAIDContentController.build { builder in
+            builder.mraidContentDelegate = self
+        }
         
         guard let fullscreenUnitController: IAFullscreenUnitController = IAFullscreenUnitController.build ({ builder in
             builder.unitDelegate = self
             builder.addSupportedContentController(viewUnitController)
+            if let mraidContentController { builder.addSupportedContentController(mraidContentController) }
         }) else { return }
         
         guard let adspot: IAAdSpot = IAAdSpot.build ({ builder in
@@ -83,6 +92,8 @@ final class FyberMediationRewardVideoAd: NSObject {
             builder.addSupportedUnitController(fullscreenUnitController)
         }) else { return }
         
+        self.videoContentController = viewUnitController
+        self.mraidContentController = mraidContentController
         self.fullscreenUnitController = fullscreenUnitController
         self.rewardedAd = adspot
 
@@ -113,7 +124,7 @@ final class FyberMediationRewardVideoAd: NSObject {
 }
 
 
-extension FyberMediationRewardVideoAd: IAUnitDelegate, IAVideoContentDelegate {
+extension FyberMediationRewardVideoAd: IAUnitDelegate, IAVideoContentDelegate, IAMRAIDContentDelegate {
     func iaParentViewController(for unitController: IAUnitController?) -> UIViewController {
         return rootViewController ?? UIViewController()
     }

@@ -13,6 +13,7 @@ final class FyberMediationInterstitialVideoAd: NSObject {
     private var adSpot: IAAdSpot?
     private var fullscreenUnitController: IAFullscreenUnitController?
     private var videoContentController: IAVideoContentController?
+    private var mraidContentController: IAMRAIDContentController?
 
     init(placementId: String, rootViewController: UIViewController?, biddingData: String? = nil) {
         self.placementId = placementId
@@ -44,7 +45,6 @@ final class FyberMediationInterstitialVideoAd: NSObject {
         }
         
         let adRequest = IAAdRequest.build { builder in
-            builder.useSecureConnections = true
             builder.spotID = self.placementId
             builder.timeout = 10
         }
@@ -59,9 +59,16 @@ final class FyberMediationInterstitialVideoAd: NSObject {
         }
         videoContentController = video
 
+        // 영상 외에 MRAID(HTML·플레이어블) 소재도 내려온다. 등록 안 하면 801 "no supported content controller"
+        let mraid = IAMRAIDContentController.build { builder in
+            builder.mraidContentDelegate = self
+        }
+        mraidContentController = mraid
+
         let fullscreen = IAFullscreenUnitController.build { builder in
             builder.unitDelegate = self
             if let video { builder.addSupportedContentController(video) }
+            if let mraid { builder.addSupportedContentController(mraid) }
         }
         fullscreenUnitController = fullscreen
 
@@ -89,7 +96,7 @@ final class FyberMediationInterstitialVideoAd: NSObject {
     }
 }
 
-extension FyberMediationInterstitialVideoAd: IAUnitDelegate, IAVideoContentDelegate {
+extension FyberMediationInterstitialVideoAd: IAUnitDelegate, IAVideoContentDelegate, IAMRAIDContentDelegate {
     func iaParentViewController(for unitController: IAUnitController?) -> UIViewController {
         return rootViewController ?? UIViewController()
     }
